@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Errands - Travel and Errand Planner</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>✈️ Travel & Errand Planner</h2>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="trips.html" class="nav-link">Trips</a>
+                </li>
+                <li class="nav-item">
+                    <a href="errands.html" class="nav-link active">Errands</a>
+                </li>
+                <li class="nav-item">
+                    <a href="about.html" class="nav-link">About</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <h1 class="page-title">Organize Your Errands</h1>
+            
+            <!-- Add Errand Form -->
+            <div class="form-section">
+                <h2>Add New Errand</h2>
+                <form id="errand-form" class="errand-form">
+                    <div class="form-group">
+                        <label for="errand-title">Errand Title *</label>
+                        <input type="text" id="errand-title" name="title" required placeholder="e.g., Buy groceries">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="errand-description">Description</label>
+                        <textarea id="errand-description" name="description" rows="3" placeholder="Add details about this errand..."></textarea>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="errand-priority">Priority</label>
+                            <select id="errand-priority" name="priority">
+                                <option value="low">Low</option>
+                                <option value="medium" selected>Medium</option>
+                                <option value="high">High</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="errand-due-date">Due Date</label>
+                            <input type="date" id="errand-due-date" name="dueDate">
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">Add Errand</button>
+                </form>
+            </div>
+
+            <!-- Errands Display -->
+            <div class="errands-section">
+                <div class="errands-header">
+                    <h2>Your Errands</h2>
+                    <div class="filter-buttons">
+                        <button class="filter-btn active" data-filter="all">All</button>
+                        <button class="filter-btn" data-filter="pending">Pending</button>
+                        <button class="filter-btn" data-filter="completed">Completed</button>
+                    </div>
+                </div>
+                
+                <div id="errands-container" class="errands-list">
+                    <!-- Errands will be dynamically added here -->
+                </div>
+                
+                <div id="no-errands" class="no-errands">
+                    <p>No errands added yet. Add your first errand above!</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Edit Errand Modal -->
+    <div id="edit-errand-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Edit Errand</h2>
+            <form id="edit-errand-form" class="errand-form">
+                <input type="hidden" id="edit-errand-id">
+                
+                <div class="form-group">
+                    <label for="edit-errand-title">Errand Title *</label>
+                    <input type="text" id="edit-errand-title" name="title" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="edit-errand-description">Description</label>
+                    <textarea id="edit-errand-description" name="description" rows="3"></textarea>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="edit-errand-priority">Priority</label>
+                        <select id="edit-errand-priority" name="priority">
+                            <option value="low">Low</option>
+                            <option value="medium">Medium</option>
+                            <option value="high">High</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="edit-errand-due-date">Due Date</label>
+                        <input type="date" id="edit-errand-due-date" name="dueDate">
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Update Errand</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Travel & Errand Planner</h3>
+                    <p>Your one-stop solution for organizing travels and daily errands.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="trips.html">Trips</a></li>
+                        <li><a href="errands.html">Errands</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p>📧 info@travelerrand.com</p>
+                    <p>📞 +1 (555) 123-4567</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Travel and Errand Planner. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
